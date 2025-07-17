@@ -22,7 +22,7 @@ jobs:
       - name: Install Node.js dependencies
         run: | 
           npm install
-      - name: Delete if the following pm2 process is running for this node-js application
+      - name: Delete if the following pm2 process is running for this node-js application.
         run: | 
           pm2 delete node-js || true      
       - name: start the application with pm2
