@@ -10,7 +10,7 @@ on:
 
 jobs:
   deployment:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     env:
       VUE_APP_STRIPE_PUBLIC_KEY: ${{ secrets.VUE_APP_STRIPE_PUBLIC_KEY }}
@@ -23,9 +23,7 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           npm install
-      - name: Delete if the following pm2 process is running for this node-js application.
+      - name: Build the application
         run: |
-          pm2 delete node-js || true
-      - name: start the application with pm2
-        run: |
-          pm2 start "npm run serve" --name="node-js"
+          npm run build
+
